@@ -24,8 +24,8 @@ jobs:
                  -e GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no" \
                  -v ${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE} \
                  cuaesd/aesd-autotest:assignment6-yocto \
-                 --workdir=${GITHUB_WORKSPACE} \
-                 ./build.sh
+                 --id=1000:1000 --workdir=${GITHUB_WORKSPACE} \
+                 echo "Using pre-built, Do nothing for Run Build"
           - name: Cleanup
             if: always()
             run: |
@@ -36,5 +36,5 @@ jobs:
                docker run --rm \
                  -v ${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE} \
                  cuaesd/aesd-autotest:assignment6-yocto \
-                 --workdir=${GITHUB_WORKSPACE} \
+                 --id=1000:1000 --workdir=${GITHUB_WORKSPACE} \
                  ./full-test.sh
